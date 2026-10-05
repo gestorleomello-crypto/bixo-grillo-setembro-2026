@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bixo Grillo — Fechamento de setembro/2026</title>
+<meta name="description" content="Apresentação de fechamento de setembro de 2026 — Bixo Grillo.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Bixo Grillo — Fechamento de setembro/2026">
+<meta property="og:type" content="website">
+<meta property="og:image" content="slides/01.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%231F3A5F'/></svg>">
+<style>
+  :root{
+    --bg:#11141A; --panel:#1B1F27; --line:#2B313C;
+    --ink:#F2F3F5; --muted:#A4ACB9; --accent:#9FC2E8;
+    --bar:64px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;height:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    display:flex; flex-direction:column; overflow:hidden;
+    -webkit-text-size-adjust:100%;
+  }
+  header{
+    height:var(--bar); flex:0 0 auto; display:flex; align-items:center; gap:12px;
+    padding:0 16px; background:var(--panel); border-bottom:1px solid var(--line);
+  }
+  .brand{font-size:14px; font-weight:600; letter-spacing:.01em; white-space:nowrap;
+         overflow:hidden; text-overflow:ellipsis}
+  .brand span{color:var(--muted); font-weight:400}
+  .spacer{flex:1}
+  a.dl{
+    color:var(--accent); text-decoration:none; font-size:13px; font-weight:600;
+    border:1px solid var(--line); padding:8px 12px; border-radius:8px; white-space:nowrap;
+  }
+  a.dl:hover{border-color:var(--accent)}
+  main{
+    flex:1 1 auto; min-height:0; position:relative;
+    display:flex; align-items:center; justify-content:center; padding:16px;
+  }
+  .stage{position:relative; width:100%; height:100%; display:flex;
+         align-items:center; justify-content:center}
+  img#slide{
+    max-width:100%; max-height:100%; width:auto; height:auto;
+    border-radius:6px; box-shadow:0 10px 40px rgba(0,0,0,.45); background:#FAF9F5;
+  }
+  button.nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:46px; height:46px; border-radius:50%; cursor:pointer;
+    background:rgba(27,31,39,.86); color:var(--ink);
+    border:1px solid var(--line); font-size:20px; line-height:1;
+    display:flex; align-items:center; justify-content:center;
+  }
+  button.nav:hover{border-color:var(--accent); color:var(--accent)}
+  button.nav:disabled{opacity:.3; cursor:default}
+  #prev{left:4px} #next{right:4px}
+  footer{
+    height:var(--bar); flex:0 0 auto; display:flex; align-items:center; gap:14px;
+    padding:0 16px; background:var(--panel); border-top:1px solid var(--line);
+  }
+  #counter{font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap}
+  #track{
+    flex:1; height:4px; background:var(--line); border-radius:2px; overflow:hidden; min-width:40px;
+  }
+  #fill{height:100%; width:0; background:var(--accent); transition:width .18s ease}
+  .hint{font-size:12px; color:var(--muted); white-space:nowrap}
+  #navbar{display:none}
+  .rotate{display:none}
+  @media (max-width:860px){
+    :root{--bar:56px}
+    main{padding:8px}
+    .hint{display:none}
+    a.dl{padding:7px 10px; font-size:12px}
+    .brand{font-size:13px}
+    .brand span{display:none}
+    /* em tela estreita as setas saem de cima do slide e vão para o rodapé */
+    button.nav{
+      position:static; transform:none; width:38px; height:38px; font-size:16px;
+      border-radius:8px; flex:0 0 auto;
+    }
+    .stage > button.nav{display:none}
+    footer{gap:10px}
+    #navbar{display:flex; gap:8px}
+    #track{min-width:0}
+    #counter{font-size:12px}
+  }
+  /* celular em retrato: avisa que deitar o aparelho aumenta o slide */
+  @media (max-width:860px) and (orientation:portrait){
+    .rotate{
+      display:block; position:absolute; left:50%; transform:translateX(-50%);
+      bottom:10px; font-size:11px; color:var(--muted); white-space:nowrap;
+      background:rgba(27,31,39,.9); border:1px solid var(--line);
+      padding:5px 10px; border-radius:20px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Bixo Grillo <span>· Fechamento de setembro/2026</span></div>
+  <div class="spacer"></div>
+  <a class="dl" href="apresentacao.pdf" target="_blank" rel="noopener">PDF</a>
+</header>
+
+<main>
+  <div class="stage">
+    <img id="slide" alt="Slide 1 de 26" src="slides/01.png">
+    <button class="nav" id="prev" aria-label="Slide anterior">&#10094;</button>
+    <button class="nav" id="next" aria-label="Próximo slide">&#10095;</button>
+    <div class="rotate">Deite o celular para ver maior</div>
+  </div>
+</main>
+
+<footer>
+  <div id="counter">1 / 26</div>
+  <div id="track"><div id="fill"></div></div>
+  <div class="hint">Use as setas do teclado</div>
+  <div id="navbar">
+    <button class="nav" id="prevM" aria-label="Slide anterior">&#10094;</button>
+    <button class="nav" id="nextM" aria-label="Próximo slide">&#10095;</button>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var TOTAL = 26, i = 1;
+  var img = document.getElementById('slide'),
+      counter = document.getElementById('counter'),
+      fill = document.getElementById('fill'),
+      prevs = [document.getElementById('prev'), document.getElementById('prevM')],
+      nexts = [document.getElementById('next'), document.getElementById('nextM')];
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  function render(){
+    img.src = 'slides/' + pad(i) + '.png';
+    img.alt = 'Slide ' + i + ' de ' + TOTAL;
+    counter.textContent = i + ' / ' + TOTAL;
+    fill.style.width = (i / TOTAL * 100) + '%';
+    prevs.forEach(function(b){ if (b) b.disabled = (i === 1); });
+    nexts.forEach(function(b){ if (b) b.disabled = (i === TOTAL); });
+    if (history.replaceState) history.replaceState(null, '', '#' + i);
+  }
+  function go(n){
+    if (n < 1 || n > TOTAL) return;
+    i = n; render();
+  }
+
+  prevs.forEach(function(b){ if (b) b.addEventListener('click', function(){ go(i - 1); }); });
+  nexts.forEach(function(b){ if (b) b.addEventListener('click', function(){ go(i + 1); }); });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(i - 1); }
+    else if (e.key === 'Home') { go(1); }
+    else if (e.key === 'End') { go(TOTAL); }
+  });
+
+  var x0 = null;
+  document.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 45) go(dx < 0 ? i + 1 : i - 1);
+    x0 = null;
+  }, {passive:true});
+
+  var start = parseInt((location.hash || '').replace('#',''), 10);
+  if (start >= 1 && start <= TOTAL) i = start;
+  render();
+
+  // pré-carrega os slides
+  window.addEventListener('load', function(){
+    for (var n = 1; n <= TOTAL; n++) { var p = new Image(); p.src = 'slides/' + pad(n) + '.png'; }
+  });
+})();
+</script>
+</body>
+</html>
